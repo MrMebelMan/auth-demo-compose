@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+
+  auth-demo-app:
+    image: jakm/auth-demo-app
+    environment:
+      - CALLBACK_URL=https://blockbook-dev.corp:8080/callback
+      - SCOPES=offline;wallet;demo
+    network_mode: host
+    restart: on-failure
+
+  auth-demo-login:
+    image: jakm/auth-demo-login
+    environment:
+      - MAIL_FROM="${MAIL_FROM}"
+      - SMTP_USER="${SMTP_USER}"
+      - SMTP_PASS="${SMTP_PASS}"
+      - CONFIRM_LINK=https://blockbook-dev.corp:9000/confirmMail/
+    network_mode: host
+    restart: on-failure
+
+  auth-demo-resource:
+    image: jakm/auth-demo-resource
+    network_mode: host
+    restart: on-failure

@@ -13,10 +13,11 @@ services:
   auth-demo-login:
     image: jakm/auth-demo-login
     environment:
-      - MAIL_FROM="${MAIL_FROM}"
-      - SMTP_USER="${SMTP_USER}"
-      - SMTP_PASS="${SMTP_PASS}"
-      - CONFIRM_LINK=https://blockbook-dev.corp:9000/confirmMail/
+      - MAIL_FROM=${MAIL_FROM}
+      - SMTP_USER=${SMTP_USER}
+      - SMTP_PASS=${SMTP_PASS}
+      - CONFIRM_LINK=https://blockbook-dev.corp:9000/register/confirm/
+      - LOGIN_PAGE_URL=https://blockbook-dev.corp:8080/login
     network_mode: host
     restart: on-failure
 
@@ -24,3 +25,7 @@ services:
     image: jakm/auth-demo-resource
     network_mode: host
     restart: on-failure
+    environment:
+      - S3_ACCESS_KEY_ID=${S3_ACCESS_KEY_ID}
+      - S3_SECRET_ACCESS_KEY=${S3_SECRET_ACCESS_KEY}
+      - S3_USE_SSL=${S3_USE_SSL}

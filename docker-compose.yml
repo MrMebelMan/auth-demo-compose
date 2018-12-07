@@ -17,6 +17,7 @@ services:
       - SMTP_USER=${SMTP_USER}
       - SMTP_PASS=${SMTP_PASS}
       - CONFIRM_LINK=https://blockbook-dev.corp:9000/register/confirm/
+      - RESET_LINK=https://blockbook-dev.corp:9000/reset/confirm/
       - LOGIN_PAGE_URL=https://blockbook-dev.corp:8080/login
     network_mode: host
     restart: on-failure

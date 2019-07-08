@@ -3,22 +3,22 @@ version: '3'
 services:
 
   auth-demo-app:
-    image: jakm/auth-demo-app
+    image: auth-demo-app
     environment:
-      - CALLBACK_URL=https://blockbook-dev.corp:8080/callback
+      - CALLBACK_URL=https://blockbook-dev.corp.sldev.cz:8080/callback
       - SCOPES=offline;wallet;demo
     network_mode: host
     restart: on-failure
 
   auth-demo-login:
-    image: jakm/auth-demo-login
+    image: auth-demo-login
     environment:
       - MAIL_FROM=${MAIL_FROM}
       - SMTP_USER=${SMTP_USER}
       - SMTP_PASS=${SMTP_PASS}
-      - CONFIRM_LINK=https://blockbook-dev.corp:9000/register/confirm/
-      - RESET_LINK=https://blockbook-dev.corp:9000/reset/confirm/
-      - LOGIN_PAGE_URL=https://blockbook-dev.corp:8080/login
+      - CONFIRM_LINK=https://blockbook-dev.corp.sldev.cz:9000/register/confirm/
+      - RESET_LINK=https://blockbook-dev.corp.sldev.cz:9000/reset/confirm/
+      - LOGIN_PAGE_URL=https://blockbook-dev.corp.sldev.cz:8080/login
     network_mode: host
     restart: on-failure
 
